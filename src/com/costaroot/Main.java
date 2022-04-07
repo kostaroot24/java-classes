@@ -11,5 +11,6 @@ public class Main {
         System.out.println("Count objects= "+c1.circleCount());
         Car bmw = new Car("bmw");
         System.out.println(bmw.toString());
+        new Executor().run();
     }
 }
