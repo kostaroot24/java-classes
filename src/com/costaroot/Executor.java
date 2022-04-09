@@ -11,6 +11,7 @@ public class Executor {
     private void testNumber(){
         Fraction x = new Fraction(1l,(short) 5002);
         System.out.println(x.toString());
-        x.addition(new Fraction(10l, ( short ) 131));
+        //x.addition(new Fraction(10l, ( short ) 831));
+        x.compareNum(new Fraction(1l,( short ) 5002));
     }
 }
