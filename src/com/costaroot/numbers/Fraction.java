@@ -67,18 +67,36 @@ public class Fraction {
         if ( this.intPart == num.getIntPart() ){
             if ( this.countOfDec() == num.countOfDec()){
                 if ( fractionPart == num.getFractionPart() ){
-                    System.out.println("Number = "+this.toString()+" is same with "+
+                    System.out.println( this.toString()+" is same with "+
                             num.toString());
                 }else if( fractionPart > num.fractionPart ){
-                    System.out.println("Number = "+this.toString()+" more than "+
+                    System.out.println( this.toString()+" great than "+
                             num.toString());
                 }else{
-                    System.out.println("Number = "+this.toString()+" less than "+
+                    System.out.println( this.toString()+" less than "+
                             num.toString());
                 }
             }else if( this.countOfDec() > num.countOfDec() ){
-                System.out.println("This part in progress");
+
+                if( this.fractionPart > num.getFractionPart() * Math.pow(10,this.countOfDec()-
+                        num.countOfDec() ) ){
+                    System.out.println(this.toString()+" more than "+
+                            num.toString());
+                }else{
+                    System.out.println(this.toString()+" less than "+
+                            num.toString());
+                }
+                System.out.println("This part was ended");
             }else{
+                System.out.println("Test: "+num.toString());
+                if( num.getFractionPart() > ( this.getFractionPart() * Math.pow(10,num.countOfDec()-
+                        this.countOfDec() ) ) ){
+                    System.out.println( this.toString()+" less than "+
+                            num.toString());
+                }else{
+                    System.out.println( this.toString()+" great than "+
+                            num.toString() );
+                }
                 System.out.println("In progress");
             }
         }else if ( this.intPart > num.getFractionPart() ){
@@ -88,5 +106,18 @@ public class Fraction {
             System.out.println("Number = "+this.toString()+" more than"+
                     num.toString());
         }
+    }
+
+    public void mulplyNum ( Fraction num ){
+        double x,y,rez;
+        x = intPart + fractionPart * Math.pow( 10, (-1 ) * this.countOfDec() );
+        y = num.getIntPart() + num.fractionPart * Math.pow( 10, ( -1 ) * num.countOfDec() );
+        rez = x * y;
+        System.out.println( this.toString()+" Num = "+rez );
+        this.intPart = ( long ) rez;
+        int index = String.valueOf(rez).indexOf(".");
+        int leng = String.valueOf(rez).substring( index ).length();
+        this.fractionPart = ( short ) ( rez * Math.pow( 10,leng-1 ) - intPart * Math.pow( 10,leng -1 ) );
+        System.out.println(this.toString());
     }
 }

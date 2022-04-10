@@ -9,9 +9,10 @@ public class Executor {
     }
 
     private void testNumber(){
-        Fraction x = new Fraction(1l,(short) 5002);
+        Fraction x = new Fraction(1l,( short ) 52);
         System.out.println(x.toString());
         //x.addition(new Fraction(10l, ( short ) 831));
-        x.compareNum(new Fraction(1l,( short ) 5002));
+        x.compareNum(new Fraction(1l,( short ) 501));
+        x.mulplyNum(new Fraction(10l,( short ) 1));
     }
 }
